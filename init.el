@@ -1,5 +1,7 @@
+;(package-initialize)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 (load "vesh_base")
-(load "vesh_melpa")
+(load "vesh_elpa")
 (load "vesh_prog")
 (load "vesh_shell")
 (load "vesh_vcs")

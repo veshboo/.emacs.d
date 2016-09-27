@@ -25,8 +25,6 @@
   (xterm-mouse-mode))
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta))
-;; Local lisps
-(add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; Autosave and files backup files in ~/.emacs.d/.
 (setq backup-directory-alist `((".*" . ,"~/.emacs.d/backups/")))
 (setq auto-save-file-name-transforms `((".*" ,"~/.emacs.d/autosaves/" t)))
