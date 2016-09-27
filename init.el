@@ -30,6 +30,6 @@
 ;;                                        ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-hl-line-mode 1)
-(set-face-background 'highlight "#663")
+(set-face-background 'highlight "#007f00")
 (set-face-foreground 'highlight nil)
 (set-face-attribute 'default nil :height 120)
