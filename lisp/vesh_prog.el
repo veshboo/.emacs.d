@@ -22,10 +22,10 @@
 ;;(autoload 'js3-mode "js3-mode" nil t)
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 
-;; Markdown
+;; Markdown and gfm-mode for *.md simply
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
 ;; Gradle
 (require 'gradle-mode)
