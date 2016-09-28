@@ -15,6 +15,12 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 (global-set-key (kbd "M-RET") 'cua-mode)
+;; Windmove
+(global-set-key (kbd "M-S-<left>") 'windmove-left)
+(global-set-key (kbd "M-S-<right>") 'windmove-right)
+(global-set-key (kbd "M-S-<up>")    'windmove-up)
+(global-set-key (kbd "M-S-<down>") 'windmove-down)
+
 ;; Less "jumpy" mouse wheel scroll
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)
