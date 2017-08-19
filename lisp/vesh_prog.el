@@ -9,7 +9,6 @@
   (shell-command
    (format "ctags -f TAGS -e -R --extra=+fq --exclude=db --exclude=test --exclude=.git --exclude=public --exclude=node_modules %s" (directory-file-name dir-name)))
   )
-;; M-x visit-tags-table to use TAGS
 
 ;; C
 (setq-default c-basic-offset 4)
@@ -26,9 +25,19 @@
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+;; marked (from npm) as markdown-command
+(setq markdown-command "marked")
 
-;; Gradle
-(require 'gradle-mode)
-(add-hook 'java-mode-hook '(lambda() (gradle-mode 1)))
+;; ECB - minibuffer completion bug
+;;(require 'ecb)
 
-;; XXX Eproject
+;; ANSI color and control
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (toggle-read-only)
+  (ansi-color-apply-on-region compilation-filter-start (point))
+  (toggle-read-only))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+;; TODO: Eproject?
+
