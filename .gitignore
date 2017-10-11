@@ -2,5 +2,9 @@
 !/README.md
 !/LICENSE
 !/init.el
-!/lisp/vesh_*.el
+!/lisp/vesh_base.el
+!/lisp/vesh_java.el
+!/lisp/vesh_octave.el
+!/lisp/vesh_prog.el
+!/lisp/vesh_python.el
 !/lisp/ws-trim.el
