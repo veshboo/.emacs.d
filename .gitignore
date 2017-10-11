@@ -3,3 +3,4 @@
 !/LICENSE
 !/init.el
 !/lisp/vesh_*.el
+!/lisp/ws-trim.el

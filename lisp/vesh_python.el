@@ -1,20 +1,46 @@
-;; Python
+;;; package -- Python
+;;; Commentary:
+;;; Code:
 
-(require 'python)
+(use-package python
+  :mode ("\\.py\\'" . python-mode))
 
-(elpy-enable)
-(elpy-use-ipython)
-;; Forces interpreter args here
-;; because elpy-use-ipython sets to `-i' when invoked
-;; (setq python-shell-interpreter "ipython3")
-(setq python-shell-interpreter-args "--simple-prompt -i")
-(add-to-list 'python-shell-completion-native-disabled-interpreters "ipython")
+;;; To enable/disable auto fix PEP8 on save
+;;; M-x py-autopep8-enable-on-save or py-autopep8-disable-on-save
+(use-package py-autopep8)
 
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+(use-package elpy
+  :config
+  (progn
+    (elpy-enable)
+    (elpy-use-ipython)
+    ;;; Forces interpreter args here
+    ;;; because elpy-use-ipython sets to `-i' when invoked
+    (setq python-shell-interpreter-args "--simple-prompt -i")
+    (add-to-list 'python-shell-completion-native-disabled-interpreters "ipython")
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (add-hook 'elpy-mode-hook 'flycheck-mode)))
 
-(require 'virtualenvwrapper)
-(venv-initialize-interactive-shells) ;; if you want interactive shell support
-(venv-initialize-eshell) ;; if you want eshell support
+;;; XXX what happen using conda without virtualenvwrapper
+;; (require 'virtualenvwrapper)
+;; (venv-initialize-interactive-shells) ;; if want interactive shell support
+;; (venv-initialize-eshell) ;; if you want eshell support
 
+(use-package conda
+  :config
+  (progn
+    (conda-env-initialize-interactive-shells)
+    (conda-env-initialize-eshell)
+    (conda-env-autoactivate-mode t)
+    (custom-set-variables
+     '(conda-anaconda-home "/Users/mini/miniconda3"))))
+
+(use-package ein)
+
+(defun py-set-indent-offset (offset)
+  "Set python indent offset to OFFSET."
+  (interactive "nOffset: ")
+  (setq python-indent-offset offset))
+
+(provide 'vesh_python)
+;;; vesh_python.el ends here
