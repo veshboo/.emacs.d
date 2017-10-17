@@ -32,12 +32,10 @@
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
-;;; Once used `marked' (from npm) as markdown-command
-;; (setq markdown-command "marked")
 ;;; Tried multimarkdown/supermarkdown/kramed/pandoc ...
 ;;; as markdown-command for latex math support. Settled with pandoc
 (defvar markdown-command)
-(setq markdown-command "pandoc -s -t html --mathjax")
+(setq markdown-command "pandoc -s -t html --mathjax --css ~/gh-dashed.css")
 
 ;;; ECB - minibuffer completion bug
 ;; (require 'ecb)
