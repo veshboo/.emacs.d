@@ -116,6 +116,7 @@
 ;;; PATH and other environment variables by sourcing .bashrc or .profile
 ;;;
 
+(require 'dash)
 (when (memq window-system '(mac ns)) (exec-path-from-shell-initialize))
 (let ((evars '("DYLD_LIBRARY_PATH" "JAVA_HOME" "HADOOP_HOME"
                "PYTHONPATH" "NODE_PATH" "EVAR2"))
@@ -134,6 +135,8 @@
 
 ;;; Spaceline + all-the-icons = spaceline-all-the-icons
 (when window-system
+  (use-package spaceline :ensure t)
+  ;;; IMPORTANT ``M-x all-the-icons-install-fonts'' to install fonts
   (use-package all-the-icons
     :ensure t)
   (require 'spaceline-config)
